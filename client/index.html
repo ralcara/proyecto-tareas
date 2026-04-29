@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tareas</title>
+</head>
+<body>
+  <h1>Lista de tareas</h1>
+  <ul id="lista"></ul>
+
+  <script>
+    async function cargar() {
+      try {
+        const res = await fetch("http://localhost:3000/tareas");
+        const data = await res.json();
+
+        const lista = document.getElementById("lista");
+
+        data.forEach(t => {
+          const li = document.createElement("li");
+          li.textContent = t.titulo;
+          lista.appendChild(li);
+        });
+
+      } catch (e) {
+        document.body.innerHTML += "<p>Error al cargar</p>";
+      }
+    }
+
+    cargar();
+  </script>
+</body>
+</html>
