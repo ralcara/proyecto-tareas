@@ -10,7 +10,7 @@
   <script>
     async function cargar() {
       try {
-        const res = await fetch("http://localhost:3000/tareas");
+        const res = await fetch("https://proyecto-tareas-1.onrender.com/tareas");
         const data = await res.json();
 
         const lista = document.getElementById("lista");
